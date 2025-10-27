@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Chart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="img/logo.png" alt="school-logo" class="d-inline-block align-text-top logo-img">
+                    <h2 class="school-name">Spring Flower School</h2>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="timeTable.html">TimeTable</a></li>
+                        <li class="nav-item"><a href="monthlyChart.html" class="nav-link href">Monthly Chart</a></li>
+                        <li class="nav-item"><a class="nav-link" href="profile.html">View Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container my-4">
+        <h2 class="mb-3">Monthly Activities</h2>
+        <div class="mb-4">
+            <h6 class="form-label">Choose subject :</h6>
+            <select name="subjects" id="subjects" onchange="displayActivity()">
+                <option value="" disabled selected>Select a Subject</option>
+                <option value="Maths">Maths</option>
+                <option value="Computer">Computer</option>
+                <option value="Science">Science</option>
+                <option value="Social Science">Social Science</option>
+                <option value="English">English</option>
+                <option value="Hindi">Hindi</option>
+            </select>
+        </div>
+
+        <div id="activityDisplay" class="alert alert-info" role="alert" style="display:none;">
+        </div>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2025 Spring Flowers Schoo. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const activities = [
+            {
+                id: 1,
+                activity: "Create a project file which contains multiplication tables from 12 to 19.",
+                subject: "Maths"
+            },
+            {
+                id: 2,
+                activity: "Prepare a presentation on the history of the internet and its main protocols.",
+                subject: "Computer"
+            },
+            {
+                id: 3,
+                activity: "Conduct an experiment on plant growth and document the results in a logbook.",
+                subject: "Science"
+            },
+            {
+                id: 4,
+                activity: "Write an essay (500 words) on the importance of democratic values in society.",
+                subject: "Social Science"
+            },
+            {
+                id: 5,
+                activity: "Read the assigned novel and write a two-page summary of the main characters and plot.",
+                subject: "English"
+            },
+            {
+                id: 6,
+                activity: "Memorize and recite a poem by a famous Indian poet; also write its meaning.",
+                subject: "Hindi"
+            }
+        ];
+
+        
+        function displayActivity() {
+           
+            const subjectSelect = document.getElementById('subjects');
+            const selectedSubject = subjectSelect.value;
+
+           
+            const displayArea = document.getElementById('activityDisplay');
+
+           
+            const matchedActivity = activities.find(item => item.subject === selectedSubject);
+
+            
+            if (matchedActivity) {
+                displayArea.innerHTML = `
+                        <h5 class="alert-heading">Monthly Activity for ${selectedSubject}:</h5>
+                        <p class="mb-0">${matchedActivity.activity}</p>
+                    `;
+                displayArea.style.display = 'block'; 
+            } else {
+                
+                displayArea.innerHTML = 'Please select a subject to view the monthly activity.';
+                if (selectedSubject === "") {
+                    displayArea.style.display = 'none';
+                } else {
+                    displayArea.style.display = 'block';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

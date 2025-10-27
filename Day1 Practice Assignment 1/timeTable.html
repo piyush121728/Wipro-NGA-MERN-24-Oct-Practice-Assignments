@@ -10,30 +10,40 @@
 </head>
 
 <body>
-    <!-- navigation bar (logo + menu) -->
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="img/logo.png" alt="school-logo">
-                <h2>Spring Flower School</h2>
-            </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="img/logo.png" alt="school-logo" class="d-inline-block align-text-top logo-img">
+                    <h2 class="school-name">Spring Flower School</h2>
+                </a>
 
-            <div class="menu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="timeTable.html">TimeTable</a></li>
-                    <li><a href="profile.html">View Profile</a></li>
-                </ul>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="timeTable.html">TimeTable</a></li>
+                        <li class="nav-item"><a href="monthlyChart.html" class="nav-link href">Monthly Chart</a></li>
+                        <li class="nav-item"><a class="nav-link" href="profile.html">View Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Log Out</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
 
     <!-- Time table section using bootstrap classes for desgin -->
-    <div class="timeTableSection p-4 bg-white rounded shadow mx-auto my-4" id="timeTableSection" style="max-width: 95%;">
+    <div class="timeTableSection p-4 bg-white rounded shadow mx-auto my-4" id="timeTableSection"
+        style="max-width: 95%;">
         <h2 class="text-center text-success mb-4">Class 12th Time Table</h2>
-    
+
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover align-middle">
                 <thead class="table-success">
@@ -91,6 +101,8 @@
     <footer>
         <p>&copy; 2025 Spring Flowers Schoo. All Rights Reserved.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 
