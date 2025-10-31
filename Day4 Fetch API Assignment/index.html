@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fetch API Assignment - Posts & Todos</title>
+
+  <!-- Link external stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ================= Header Section ================= -->
+  <header>
+    <div>
+      <h1>Blog Posts & Todos (Fetch API)</h1>
+      <small class="msg">Data retrieved from JSONPlaceholder (sample APIs)</small>
+    </div>
+    <!-- Refresh button and global status message -->
+    <div style="margin-left:auto; display:flex; gap:8px; align-items:center">
+      <button id="refreshBtn" class="btn">Refresh</button>
+      <div id="globalStatus" aria-live="polite"></div>
+    </div>
+  </header>
+
+  <!-- ================= Main Content ================= -->
+  <main class="container">
+
+    <!-- ===== Posts Section ===== -->
+    <section class="card" id="postsCard" aria-labelledby="postsTitle">
+      <h2 id="postsTitle">Posts</h2>
+      <div id="postsList" role="list" aria-live="polite"></div>
+      <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
+        <small id="postsMeta" class="msg"></small>
+      </div>
+    </section>
+
+    <!-- ===== Todos Section ===== -->
+    <aside class="card" id="todosCard" aria-labelledby="todosTitle">
+      <h2 id="todosTitle">Todos</h2>
+      <div id="todosList" role="list" aria-live="polite"></div>
+
+      <!-- Buttons to filter todos -->
+      <div style="margin-top:12px; display:flex; gap:8px;">
+        <button id="showIncomplete" class="secondary">Show Incomplete</button>
+        <button id="showAll" class="secondary">Show All</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer>
+    <div>Implemented using Fetch API, error handling, and Revealing Module Pattern</div>
+  </footer>
+
+  <!-- Link external JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
