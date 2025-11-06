@@ -1,0 +1,73 @@
+/* App.css */
+/* Basic styling for layout and components */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f8fa;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+header {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.book-list-container {
+  margin: 0 auto;
+  width: 80%;
+  text-align: left;
+}
+
+.toggle-btn {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.toggle-btn:hover {
+  background-color: #0056b3;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+.book-list.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.book-list.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.book-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.book-card h3 {
+  margin: 0;
+  color: #333;
+}
