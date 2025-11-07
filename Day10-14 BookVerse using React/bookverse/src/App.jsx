@@ -1,22 +1,22 @@
 // App.jsx
-// Parent component to render the BookList and display page header
+// Entry point integrating styled components with Bootstrap
 
 import React from "react";
 import BookList from "./components/BookList";
-import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (
-    <div className="App">
-      <header>
+    <div className="App bg-light p-4">
+      <header className="bg-dark text-white p-3 rounded">
         <h1>📚 BookVerse</h1>
         <p>Discover your next great read!</p>
       </header>
 
-      {/* Render the main BookList section */}
       <BookList />
     </div>
   );
 };
 
 export default App;
+

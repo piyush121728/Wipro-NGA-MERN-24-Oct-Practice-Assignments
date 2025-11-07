@@ -1,54 +1,71 @@
 // BookList.jsx
-// Parent component that renders multiple BookCard components
+// Combines BookCard, AuthorInfo, and demonstrates Refs (Uncontrolled Components)
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import BookCard from "./BookCard";
 import SearchBox from "./SearchBox";
+import AuthorInfo from "./AuthorInfo";
 import booksData from "../data/booksData";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const BookList = () => {
-    // State for list of books and layout mode
-    const [layout, setLayout] = useState("grid"); // grid or list
+    const [layout, setLayout] = useState("grid");
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectedAuthor, setSelectedAuthor] = useState(null);
 
-    // Function to handle layout toggle
+    // Ref for focusing on the search input
+    const searchRef = useRef(null);
+
     const toggleLayout = () => {
         setLayout(layout === "grid" ? "list" : "grid");
     };
 
-    // Filter books based on search input
     const filteredBooks = booksData.filter((book) =>
         book.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    const focusSearch = () => {
+        if (searchRef.current) {
+            searchRef.current.focus();
+        }
+    };
+
     return (
-        <div className="book-list-container">
-            <h2>Featured Books</h2>
+        <div className="container">
+            <h2 className="mt-4">Featured Books</h2>
 
-            {/* Controlled input for search */}
-            <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <SearchBox
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                inputRef={searchRef}
+            />
 
-            {/* Layout toggle button */}
-            <button onClick={toggleLayout} className="toggle-btn">
-                Switch to {layout === "grid" ? "List" : "Grid"} View
-            </button>
-
-            {/* Render filtered books */}
-            <div className={`book-list ${layout}`}>
-                {filteredBooks.length > 0 ? (
-                    filteredBooks.map((book) => (
-                        <BookCard
-                            key={book.id}
-                            title={book.title}
-                            author={book.author}
-                            price={book.price}
-                            layout={layout}
-                        />
-                    ))
-                ) : (
-                    <p>No books found.</p>
-                )}
+            <div className="d-flex gap-2 mb-3">
+                <button className="btn btn-primary" onClick={toggleLayout}>
+                    Switch to {layout === "grid" ? "List" : "Grid"} View
+                </button>
+                <button className="btn btn-secondary" onClick={focusSearch}>
+                    Focus Search
+                </button>
             </div>
+
+            <div
+                className={`book-list d-${layout === "grid" ? "grid" : "flex"} flex-wrap`}
+            >
+                {filteredBooks.map((book) => (
+                    <BookCard
+                        key={book.id}
+                        title={book.title}
+                        author={book.author}
+                        price={book.price}
+                        layout={layout}
+                        onSelectAuthor={setSelectedAuthor}
+                    />
+                ))}
+            </div>
+
+            {/* Author Info Section */}
+            <AuthorInfo author={selectedAuthor} />
         </div>
     );
 };

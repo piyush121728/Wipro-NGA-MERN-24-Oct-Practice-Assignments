@@ -1,23 +1,18 @@
 // SearchBox.jsx
-// Controlled component for managing search input
+// Controlled + Uncontrolled component (using ref)
 
 import React from "react";
 
-const SearchBox = ({ searchTerm, setSearchTerm }) => {
-    // Handle input change event
-    const handleChange = (e) => {
-        setSearchTerm(e.target.value);
-    };
-
+const SearchBox = ({ searchTerm, setSearchTerm, inputRef }) => {
     return (
-        <div className="search-box">
-            <input
-                type="text"
-                placeholder="Search by title..."
-                value={searchTerm}
-                onChange={handleChange}
-            />
-        </div>
+        <input
+            type="text"
+            placeholder="Search by title..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            ref={inputRef}
+            className="form-control my-3"
+        />
     );
 };
 
