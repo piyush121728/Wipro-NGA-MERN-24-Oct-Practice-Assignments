@@ -26,8 +26,8 @@ const Author = mongoose.model('Authors', authorSchema);
 
 //  Insert new Indian authors (will add to existing Authors collection)
 Author.insertMany([
-    { _id: 6, name: "Ravindra Singh", nationality: "Indian", birthYear: 1974 },
-    { _id: 7, name: "Durjoy Dutta", nationality: "Indian", birthYear: 1906 }
+    { _id: 4, name: "Ravindra Singh", nationality: "Indian", birthYear: 1974 },
+    { _id: 5, name: "Durjoy Dutta", nationality: "Indian", birthYear: 1906 }
 ])
     .then(() => console.log("🎉 New authors inserted into existing 'Authors' collection!"))
     .catch(err => console.error("❌ Error inserting authors:", err))
