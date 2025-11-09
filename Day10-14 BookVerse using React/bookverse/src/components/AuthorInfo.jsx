@@ -1,9 +1,15 @@
 // AuthorInfo.jsx
-// Class component to display author details and lifecycle usage
-
 import React, { Component } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import authorsData from "../data/authorsData";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Wrapper so class component can use hooks */
+function AuthorInfoWrapper() {
+    const { authorName } = useParams();
+    const navigate = useNavigate();
+    return <AuthorInfo authorName={authorName} navigate={navigate} />;
+}
 
 class AuthorInfo extends Component {
     constructor(props) {
@@ -12,15 +18,9 @@ class AuthorInfo extends Component {
     }
 
     componentDidMount() {
-        // Log when author details load
-        console.log("AuthorInfo component mounted, loading author data...");
-        this.loadAuthorInfo(this.props.author);
-    }
-
-    componentDidUpdate(prevProps) {
-        // Load author details when a different book is clicked
-        if (prevProps.author !== this.props.author) {
-            this.loadAuthorInfo(this.props.author);
+        const { authorName } = this.props;
+        if (authorName) {
+            this.loadAuthorInfo(decodeURIComponent(authorName));
         }
     }
 
@@ -31,28 +31,40 @@ class AuthorInfo extends Component {
 
     render() {
         const { author } = this.state;
+        const { navigate } = this.props;
 
         if (!author) {
             return (
-                <div className="alert alert-info mt-3">Click on a book to view author details.</div>
+                <div className="alert alert-warning mt-5 text-center">
+                    Author not found.
+                    <br />
+                    <button className="btn btn-secondary mt-3" onClick={() => navigate("/home")}>
+                        Back to Home
+                    </button>
+                </div>
             );
         }
 
         return (
-            <div className="card mt-3 shadow-sm">
-                <div className="card-body">
-                    <h4 className="card-title text-primary">Author Details</h4>
-                    <p><strong>Bio:</strong> {author.bio}</p>
-                    <h6>Top 3 Books:</h6>
-                    <ul>
-                        {author.topBooks.map((book, idx) => (
-                            <li key={idx}>{book}</li>
-                        ))}
-                    </ul>
+            <div className="container mt-5">
+                <div className="card shadow-sm">
+                    <div className="card-body">
+                        <h3 className="card-title text-primary">{decodeURIComponent(this.props.authorName)}</h3>
+                        <p><strong>Bio:</strong> {author.bio}</p>
+                        <h6><strong>Top 3 Books:</strong></h6>
+                        <ul>
+                            {author.topBooks.map((book, idx) => (
+                                <li key={idx}>{book}</li>
+                            ))}
+                        </ul>
+                        <button className="btn btn-dark mt-3" onClick={() => navigate("/home")}>
+                            Back to Home
+                        </button>
+                    </div>
                 </div>
             </div>
         );
     }
 }
 
-export default AuthorInfo;
+export default AuthorInfoWrapper;

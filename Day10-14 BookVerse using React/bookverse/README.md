@@ -1,70 +1,163 @@
-# Getting Started with Create React App
+# 📚 BookVerse – React Frontend (Day 3 & 3.5)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+BookVerse is a dynamic React-based online book catalog application built using **Create React App**.  
+It demonstrates **React fundamentals**, **routing**, **component lifecycle**, and **integration with a mock backend** (`json-server`).  
+This version (Day 3 + 3.5) includes **conditional navigation** between Book Details and Author Info pages.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- **Dynamic Data Fetching** using `json-server`
+- **Routing** with `react-router-dom`
+- **Grid/List Toggle Layouts**
+- **Search Functionality**
+- **Reusable Components** (`withLoader`, `RenderMessage`, `BookCard`, etc.)
+- **Author Navigation:**  
+  - Clicking the author’s name opens their Author Info page  
+  - Clicking elsewhere on the card opens Book Details
+- **Loading Spinner** via Higher Order Component (HOC)
+- **Smooth Fade-In Animations** for Route Transitions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧩 Project Structure
 
-### `npm test`
+```
+src/
+│
+├── components/
+│   ├── App.jsx
+│   ├── BookList.jsx
+│   ├── BookCard.jsx
+│   ├── BookDetails.jsx
+│   ├── AuthorInfo.jsx
+│   ├── SearchBox.jsx
+│   ├── RenderMessage.jsx
+│   └── withLoader.jsx
+│
+├── data/
+│   └── authorsData.js
+│
+├── App.css
+└── index.js
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## ⚙️ Installation & Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1️⃣ Clone the Repository
+```bash
+git clone <your-repo-url>
+cd bookverse
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2️⃣ Install Dependencies
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3️⃣ Start the Mock Backend
+```bash
+npx json-server --watch public/books.json --port 8000
+```
+✅ Backend runs on [http://localhost:8000/books](http://localhost:8000/books)
 
-### `npm run eject`
+### 4️⃣ Start the React App
+```bash
+npm start
+```
+✅ App runs on [http://localhost:3000](http://localhost:3000)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🧠 Core Components
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **1. App.jsx**
+Handles main routing for:
+- `/home` → BookList
+- `/book/:id` → BookDetails
+- `/author/:authorName` → AuthorInfo  
+Manages global loading state shared across components.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **2. BookList.jsx**
+Fetches books from the backend API.  
+Allows toggling between grid and list layouts, includes search, and renders individual BookCards.
 
-## Learn More
+### **3. BookCard.jsx**
+Displays each book's title, author, and price.  
+Implements **conditional click navigation**:
+- Click on card → BookDetails
+- Click on author → AuthorInfo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **4. BookDetails.jsx**
+Displays detailed info (title, price, description) for a selected book.  
+Fetches data using the book ID from the route.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **5. AuthorInfo.jsx**
+A class-based component showing an author's bio and top 3 books.  
+Includes a “Back to Home” button for easy navigation.
 
-### Code Splitting
+### **6. withLoader.jsx**
+A Higher Order Component (HOC) that wraps components to show a spinner while data loads.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### **7. RenderMessage.jsx**
+Renders dynamic fallback messages (e.g., “No books found”).
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🧰 Technologies Used
 
-### Making a Progressive Web App
+- **React 18+**
+- **React Router DOM v6**
+- **Bootstrap 5**
+- **json-server** (Mock REST API)
+- **JavaScript (ES6+)**
+- **HTML5 & CSS3**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🖼️ UI Preview (Placeholders)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- 🏠 Home Page – Grid/List Book View  
+- 📘 Book Details Page  
+- ✍️ Author Info Page (with Back to Home)  
+- 🔄 Routing Transition Animation  
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🧾 Scripts
 
-### `npm run build` fails to minify
+| Command | Description |
+|----------|-------------|
+| `npm start` | Runs React app in development mode |
+| `npx json-server --watch public/books.json --port 8000` | Starts mock backend server |
+| `npm run build` | Builds the app for production |
+| `npm test` | Launches test runner |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 🧑‍💻 Developer Notes
+
+- Ensure the **json-server** is running before starting the app.
+- Backend endpoint: `http://localhost:8000/books`
+- React frontend runs at: `http://localhost:3000`
+- Uses **HOC pattern**, **React Hooks**, and **Lifecycle Methods**.
+- Modular structure for reusability and maintainability.
+
+---
+
+## 📚 Learn More
+
+- [React Documentation](https://reactjs.org/)
+- [React Router Documentation](https://reactrouter.com/)
+- [Bootstrap Docs](https://getbootstrap.com/)
+- [JSON Server Guide](https://github.com/typicode/json-server)
+
+---
+
+## 👨‍💻 Author
+**Developed as part of the Wipro MERN FY26 Program (Day 10–14 Coding Challenge)**  
+Author: *Piyush Kumar*  
+Project: *BookVerse (React Frontend with Routing & Backend Integration)*  

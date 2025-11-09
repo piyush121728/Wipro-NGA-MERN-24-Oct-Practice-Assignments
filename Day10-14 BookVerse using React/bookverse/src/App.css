@@ -71,3 +71,20 @@ header {
   margin: 0;
   color: #333;
 }
+
+/* Routing Transition Animation (Day 3) */
+.fade-in {
+  animation: fadeIn 0.7s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
