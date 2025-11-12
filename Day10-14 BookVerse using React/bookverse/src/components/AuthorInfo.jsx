@@ -49,7 +49,8 @@ class AuthorInfo extends Component {
             <div className="container mt-5">
                 <div className="card shadow-sm">
                     <div className="card-body">
-                        <h3 className="card-title text-primary">{decodeURIComponent(this.props.authorName)}</h3>
+                        <h1 className="card-title text-primary">Author Info:</h1>
+                        <h2 >{decodeURIComponent(this.props.authorName)}</h2>
                         <p><strong>Bio:</strong> {author.bio}</p>
                         <h6><strong>Top 3 Books:</strong></h6>
                         <ul>

@@ -1,39 +1,39 @@
 {
-    "books": [
-        {
-            "id": 1,
-            "title": "Atomic Habits",
-            "author": "James Clear",
-            "price": 499,
-            "description": "A practical guide to building good habits and breaking bad ones."
-        },
-        {
-            "id": 2,
-            "title": "The Alchemist",
-            "author": "Paulo Coelho",
-            "price": 299,
-            "description": "A philosophical story about a shepherd's journey to fulfill his dream."
-        },
-        {
-            "id": 3,
-            "title": "Rich Dad Poor Dad",
-            "author": "Robert Kiyosaki",
-            "price": 399,
-            "description": "Lessons on financial independence and mindset shift."
-        },
-        {
-            "id": 4,
-            "title": "Deep Work",
-            "author": "Cal Newport",
-            "price": 450,
-            "description": "A deep dive into productivity and focus in the digital age."
-        },
-        {
-            "id": 5,
-            "title": "Ikigai",
-            "author": "Héctor García",
-            "price": 350,
-            "description": "The Japanese secret to a long and happy life."
-        }
-    ]
+  "books": [
+    {
+      "id": "1",
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "price": 499,
+      "description": "A practical guide to building good habits and breaking bad ones."
+    },
+    {
+      "id": "2",
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "price": 299,
+      "description": "A philosophical story about a shepherd's journey to fulfill his dream."
+    },
+    {
+      "id": "3",
+      "title": "Rich Dad Poor Dad",
+      "author": "Robert Kiyosaki",
+      "price": 399,
+      "description": "Lessons on financial independence and mindset shift."
+    },
+    {
+      "id": "5",
+      "title": "Ikigai",
+      "author": "Héctor García",
+      "price": 350,
+      "description": "The Japanese secret to a long and happy life."
+    },
+    {
+      "id": "c73d",
+      "title": "Can love happen twice?",
+      "author": "Ravindra Singh",
+      "price": "450",
+      "description": "This is a love stroy book."
+    }
+  ]
 }

@@ -1,13 +1,12 @@
-// App.jsx
-// Adds routing between Home (BookList) and Book Details page with fade transition
-
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import BookList from "./components/BookList";
-import BookDetails from "./components/BookDetails";
-import AuthorInfo from "./components/AuthorInfo";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+// App.jsx - updated to include Day 4 routes (Add/Edit)
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import BookList from './components/BookList';
+import BookDetails from './components/BookDetails';
+import AuthorInfo from './components/AuthorInfo';
+import BookForm from './components/BookForm';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -25,6 +24,8 @@ const App = () => {
           <Route path="/home" element={<BookList loading={loading} setLoading={setLoading} />} />
           <Route path="/book/:id" element={<BookDetails loading={loading} setLoading={setLoading} />} />
           <Route path="/author/:authorName" element={<AuthorInfo />} />
+          <Route path="/add-book" element={<BookForm mode="add" />} />
+          <Route path="/edit/:id" element={<BookForm mode="edit" />} />
         </Routes>
       </div>
     </Router>
@@ -32,4 +33,3 @@ const App = () => {
 };
 
 export default App;
-
