@@ -1,0 +1,20 @@
+{
+  "name": "day16-introduction-to-nodejs-and-basics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "hello": "node hello-node.js",
+    "greet": "node greet.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "figlet": "^1.9.3",
+    "moment": "^2.30.1"
+  }
+}
