@@ -99,27 +99,27 @@
             }
         ];
 
-        
+
         function displayActivity() {
-           
+
             const subjectSelect = document.getElementById('subjects');
             const selectedSubject = subjectSelect.value;
 
-           
+
             const displayArea = document.getElementById('activityDisplay');
 
-           
+
             const matchedActivity = activities.find(item => item.subject === selectedSubject);
 
-            
+
             if (matchedActivity) {
                 displayArea.innerHTML = `
                         <h5 class="alert-heading">Monthly Activity for ${selectedSubject}:</h5>
                         <p class="mb-0">${matchedActivity.activity}</p>
                     `;
-                displayArea.style.display = 'block'; 
+                displayArea.style.display = 'block';
             } else {
-                
+
                 displayArea.innerHTML = 'Please select a subject to view the monthly activity.';
                 if (selectedSubject === "") {
                     displayArea.style.display = 'none';
