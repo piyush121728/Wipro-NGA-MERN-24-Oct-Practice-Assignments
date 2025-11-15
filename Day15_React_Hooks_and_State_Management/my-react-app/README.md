@@ -1,70 +1,199 @@
-# Getting Started with Create React App
+# React Hooks & State Management – PWA Enabled Fitness App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was built using **Create React App (CRA)** and enhanced with:
 
-## Available Scripts
+- ⚛️ React Hooks  
+- 🎯 Redux State Management  
+- 🌐 React Router  
+- 🎨 Bootstrap Styling  
+- 📦 Workbox PWA (InjectManifest mode)  
+- 📲 Offline Support + Installable App  
+- 🏋️‍♂️ Workout Tracker, BMI Calculator, Counters & More  
+
+It is part of the **Wipro MERN FY26 – Day 15 React Hooks & State Management Assignment**.
+
+---
+
+## 🚀 Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
+Runs the app in development mode.  
+Open **http://localhost:3000** in your browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The page will reload automatically when you make changes.  
+You may also see lint errors in the console.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
 ### `npm run build`
+Builds the app for production inside the **build/** folder.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The build is optimized with:
+- Minified JS/CSS  
+- Hashed filenames  
+- Precache manifest (via Workbox)  
+- Tree-shaken code  
+- Optimized static assets  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This build is ready to be deployed.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
+
+### Serving the Production Build (PWA)
+To test PWA features (offline mode, installability):
+
+
+1. Install a static server:
+```
+npm install -g serve
+```
+
+2. delete existing build folder:
+```
+rm -r -fo build
+```
+
+3. create build folder:
+```
+npm run build
+```
+
+4. Serve the build folder:
+```
+serve -s build
+```
+
+5. Open the link shown in terminal.
+
+This enables:
+- Service Worker  
+- Workbox caching  
+- Offline support  
+- “Add to Home Screen” prompt  
+
+---
+
+### `npm test`
+Launches the test runner in interactive watch mode.  
+(Only applicable if tests are added.)
+
+---
 
 ### `npm run eject`
+⚠ **Warning:** this is irreversible.  
+Ejecting copies all config files (Webpack, Babel, ESLint) into your project.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 📚 Learn More
+- CRA Docs: https://facebook.github.io/create-react-app/  
+- React Docs: https://reactjs.org/  
+- React Router Docs: https://reactrouter.com/  
+- Redux Toolkit Docs: https://redux-toolkit.js.org/  
+- Bootstrap Docs: https://getbootstrap.com/  
+- Workbox Docs: https://developer.chrome.com/docs/workbox  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# 🔥 Project Features
 
-## Learn More
+### ✔ React Hooks
+- useState  
+- useEffect  
+- useReducer  
+- useRef  
+- Custom Hooks  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### ✔ Redux Global Store
+- Centralized state  
+- Reducers + actions  
+- Shared component communication  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### ✔ Routing with React Router
+- Home  
+- Workout Tracker  
+- BMI Calculator  
+- Quotes/API  
+- Challenges Page  
 
-### Code Splitting
+### ✔ Styled with Bootstrap
+- Responsive Navbar  
+- Footer  
+- Cards  
+- Buttons  
+- Layout grids  
+- Forms  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### ✔ PWA (Progressive Web App)
+- Offline caching  
+- Runtime caching (API + images)  
+- Precache for static assets  
+- Installable on mobile  
+- Fast load via Workbox  
 
-### Analyzing the Bundle Size
+Service worker location:
+```
+src/service-worker.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+# 📦 Folder Structure
+```
+src/
+├── components/
+│   ├── Navbar.js
+│   ├── Footer.js
+│   ├── WorkoutTracker.js
+│   ├── BMI.js
+│   ├── Counter.js
+│   └── ...
+├── pages/
+│   ├── Home.js
+│   ├── About.js
+│   ├── Challenges.js
+│   └── ...
+├── store/
+│   ├── index.js
+│   └── reducers.js
+├── App.js
+├── index.js
+└── service-worker.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+# 📝 Deployment
+You can deploy using:
+- Netlify  
+- Vercel  
+- GitHub Pages  
+- Firebase Hosting  
+- Render  
+- Any static hosting provider  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+# 🧪 Troubleshooting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Service worker not registering?
+- Ensure it's in `/src`, not `/public`
+- Use `npm run build`
+- Use `serve -s build` to test PWA
 
-### `npm run build` fails to minify
+### Lighthouse warning about IndexedDB?
+Run Lighthouse in **Incognito Mode**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### “serve not recognized”
+Install globally:
+```
+npm install -g serve
+```
+
+---
+
+# 👤 Author
+**Piyush Kumar**  
+Wipro MERN FY26 – Day 15 React Assignments

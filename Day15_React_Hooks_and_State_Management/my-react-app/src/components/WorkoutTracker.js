@@ -18,7 +18,7 @@ export default function WorkoutTracker() {
       timer.pause();
       alert("Rest complete!");
     }
-  }, [timer.seconds, restSec]);
+  }, [timer,timer.seconds, restSec]);
 
   return (
     <div className="card p-4 shadow-sm">
