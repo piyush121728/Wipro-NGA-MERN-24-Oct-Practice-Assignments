@@ -1,0 +1,2 @@
+Hello from data.txt!
+This is example content.

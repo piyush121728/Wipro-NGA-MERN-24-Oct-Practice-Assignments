@@ -1,0 +1,2 @@
+This is content from input.txt.
+Copied using Promises.
