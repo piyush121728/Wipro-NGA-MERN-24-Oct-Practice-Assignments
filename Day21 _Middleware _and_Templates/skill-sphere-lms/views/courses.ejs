@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8"/>
+ <title>Courses</title>
+</head>
+<body>
+ <h1>Courses</h1>
+ <ul>
+   <% courses.forEach(c=>{ %>
+     <li><strong><%= c.name %></strong> — <%= c.duration %></li>
+   <% }) %>
+ </ul>
+</body>
+</html>
